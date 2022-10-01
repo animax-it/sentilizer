@@ -1,25 +1,27 @@
-import Hapi from 'hapi';
-import {routes} from './routes';
+const Hapi = require('@hapi/hapi');
+const regeneratorRuntime = require("regenerator-runtime");
+import { routes } from './routes';
 
-const server = Hapi.server({
-    host: 'localhost',
-    port: 5000
+const init = async () => {
 
+    const server = Hapi.server({
+        port: 5000,
+        host: 'localhost',
+        routes: { cors: true }
+    });
+
+    routes.forEach((route) => {
+        server.route(route);
+    });
+
+    await server.start();
+    console.log('Server running on %s', server.info.uri);
+};
+
+process.on('unhandledRejection', (err) => {
+
+    console.log(err);
+    process.exit(1);
 });
 
-routes.forEach((route) => {
-     server.route(route);
-});
-
-        async function start() {
-           try {
-            await server.start();
-           }
-           catch (err){
-            console.log(err);
-           }
-           console.log('Hapii server is running');
-        }
-
-        start();
-  
+init();

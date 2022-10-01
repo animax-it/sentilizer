@@ -1,7 +1,6 @@
-
+import React, { Component } from 'react';
 import QueryForm from './components/queryform';
 import './App.css';
-import React, { Component } from 'react';
 
 class App extends Component {
   render() {
@@ -9,8 +8,9 @@ class App extends Component {
       <div className="App">
         <QueryForm />
       </div>
-
     );
   }
 }
+
+
 export default App;
