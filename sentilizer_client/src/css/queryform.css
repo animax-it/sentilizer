@@ -1,0 +1,40 @@
+.page-heading {
+    color:aqua
+}
+.query-form-wrapper{
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.query-form-wrapper label{
+    color: aquamarine;
+
+}
+.query-form-wrapper label,
+.query-form-wrapper textarea,
+.query-form-wrapper button {
+    width:100%; 
+}
+.query-form-wrapper textarea {
+    min-height: 150px;
+    
+}
+
+.query-form-wrapper button{
+    height: 40px;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: green;
+    border: none;
+    
+}
+.query-form-wrapper button:hover {
+    background-color: aquamarine;
+}
+.query-form-wrapper button:disabled {
+    background-color: bisque;
+}
+.response-text{
+    color: aquamarine;
+}
