@@ -1,16 +1,17 @@
-const promisify = require('util.promisify');
 import {PythonShell} from 'python-shell';
+const promisify = require('util.promisify');
+
 let python_shell_run = promisify(PythonShell.run);
 
 export function sentilize(sentence){
   return new Promise(
     (resolve, reject) => {
       let options = {
-        scriptPath: 'E:\ssd_bkp\course_nodejs_reactjs\sentilizer_api\src',
+        scriptPath: './',
         args: ['-s', '\"' + sentence + '\"']
       };
 
-      python_shell_run('vader.py', options)
+      python_shell_run('src/vader.py', options)
       .then(results => {
         let sentiment = results[0];
         let resp = { sentiment: 'Neutral'};
